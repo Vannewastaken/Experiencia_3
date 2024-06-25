@@ -1,0 +1,141 @@
+
+body{
+  background-color:#fdfbf1 ;
+}
+
+/* CAMBIAR DE COLOR EL NAV */
+.menu{
+    background-color:#171718 ;
+}
+
+/* PARA QUITARLE LOS ESPACIOS A LOS LADOS */
+.navdiv
+{
+    padding-left: 0;
+    padding-right: 0;
+}
+
+
+/* FONTS */
+.poppins {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 17px;
+    color: #f9fbff;
+    padding: 10px;
+  }
+
+  
+  p{
+    font-family: "Almarai", sans-serif;
+    font-weight: 400;
+    font-style:normal;
+    font-size: 19px;
+  }
+
+  .rowstyle-dark{
+    background-color: #383b3d;
+    margin-top: 40px;
+    padding: 20px;
+  }
+
+  h1{
+    font-family: "Poppins", sans-serif;
+    font-weight: 800;
+    font-style: normal;
+  }
+
+.marginrow{
+  margin: 100px;
+}
+
+h3{
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+
+}
+
+.inicioform{
+  
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.btnstyleform{
+  background-color: #171718;
+  color: #f9fbff;
+  font-family: "Poppins", sans-serif;
+
+}
+
+.btnstyleform:hover{
+  background-color: #c6cbce;
+}
+
+.inputfont{
+  font-family: "Almarai", sans-serif; 
+  font-weight: 400;
+}
+
+.labelfont{
+  font-family: "Poppins" , sans-serif;
+  font-weight: 600; 
+  
+
+}
+/* 
+ESTILOS PARA SERVICIOS */
+
+.card{
+  padding: 10px;
+  margin: 20px;
+}
+
+.card-title{
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+}
+
+
+.row_style{
+  
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+
+.custom-card {
+  max-width: 100%; /* Establece el ancho máximo de las cartas */
+  width: 400px; /* Asegura que las cartas ocupen todo el ancho de la columna */
+   /* Centra horizontalmente las cartas */ 
+}
+
+h4{
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.btnservicios{
+  margin: 20px;
+  background-color: #171718;
+  border-width: 0cap;
+  color: aliceblue;
+  font-family: "Almarai", sans-serif;
+ }
+ 
+ 
+ .ulservicio{
+  margin:20px;
+}
+ 
+ .cuerpocarta{
+     margin: 20px;
+     font-family: "Almarai", sans-serif;
+ }
+
+ hr{
+  width: 90%;
+  margin: 20px;
+}

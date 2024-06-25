@@ -1,0 +1,78 @@
+{
+    "camiones": [
+        {
+            "id":1,
+            "marca":"Hyundai",
+            "valorxruta":"$92.500",
+            "capacidad":"12 Pallets",
+            "img":"https://www.zentrumcamiones.cl/wp-content/uploads/2023/03/Zentrum-Camiones-Volkswagen-25360-hr-v-tronic.jpg"
+        },
+        {
+            "id":2,
+            "marca":"Volkswagen",
+            "valorxruta":"$92.500",
+            "capacidad":"12 Pallets",
+            "img":"https://i.ibb.co/YZZzpKD/CAMION9.png"
+        },
+        {
+            "id":3,
+            "marca":"Hyundai pequeño",
+            "valorxruta":"$66.500",
+            "capacidad":"8 Pallets",
+            "img":"https://i.ibb.co/RY70tQP/CAMION8.png"
+        },
+        {
+            "id":4,
+            "marca":"Hyundai Grande",
+            "valorxruta":"$106.500",
+            "capacidad":"16 Pallets",
+            "img":"https://i.ibb.co/XDMcnHQ/CAMION7.png"
+        }
+    ],
+
+    "conrampla":[ 
+        {
+            "id":1,
+            "metros":"20 metros",
+            "capacidad":"36 Pallets",
+            "img":"https://i.ibb.co/d2SnLMx/camion-camion.png",
+            "cityxvalor": {
+                "santiago":"$206.500",
+                "rancagua":"$425.000"
+            }
+            
+        },
+        {
+            "id":2,
+            "metros":"18 metros",
+            "capacidad":"32 Pallets",
+            "img":"https://i.ibb.co/2dNxfSZ/camion3.png",
+            "cityxvalor": {
+                "santiago":"$189.500",
+                "rancagua":"$399.000"
+            }
+        },
+        {
+            "id":3,
+            "metros":"17 metros",
+            "capacidad":"28 Pallets",
+            "img":"https://i.ibb.co/zHL39z5/camion6.png",
+            "cityxvalor": {
+                "santiago":"$167.500",
+                "rancagua":"$270.000"
+            }
+        },
+        {
+            "id":4,
+            "metros":"15.5 metros",
+            "capacidad":"26 Pallets",
+            "img":"https://i.ibb.co/vDZ38z7/camion5.png",
+            "cityxvalor": {
+                "santiago":"$143.500",
+                "rancagua":"$220.000"
+            }
+        }
+
+    ]
+}
+

@@ -2,16 +2,12 @@
 
 {% block title %} Home {% endblock %}
 
-{% block head-extra %}
-{% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'CSS/ESTILOS.css' %}">
-{% endblock %}
-
 {% block content %}
-{% load static %} 
+{% load static %}
 
-       <!-- CARRUSEL -->
-       <div id="demo" class="carousel slide " data-bs-ride="carousel" >
+<!-- CARRUSEL -->
+ <main class="container-fluid" style="padding: 0;">
+    <div id="demo" class="carousel slide " data-bs-ride="carousel"  >
 
         <!-- INDICADORES INFERIORES -->
         <div class="carousel-indicators">
@@ -55,56 +51,57 @@
         </button>
         
       </div>
-    
-    
-    
-      
-    
-        <div class="container-fluid">
-            <div class="row ">
-    
-                <div class="col-sm-6 p-5" >  
-    
-                    <h2  style="margin-bottom: 20px;">
-                        Quienes somos
-                    </h2>
-                    <p>
-                        Transportes Contreras y Compañía Limitada se enorgullece de comprometerse con la satisfacción total de nuestros clientes. 
-                        Nos esforzamos por ofrecer un servicio de transporte de carga por carretera confiable y eficiente, manteniendo la integridad de las entregas y 
-                        cumpliendo estrictamente con los horarios acordados.
-                    </p>
-    
-                    <div>
-                        <a href="NOSOTROS.html" class="btn btn-success" style="background-color: black;">Saber más</a>
-                    </div>
-    
-    
-                </div>
-    
-                <div class="col-sm-6 d-flex justify-content-center align-items-center">
-                    <img src="{% static 'IMG/CAMIONESw.jpg' %}"  style="height: 300px;" class="img-fluid">
-               </div>
+ </main>
+
+ <div class="container-fluid">
+    <div class="row " style="padding-top: 50px; padding-bottom: 50px;">
+
+        <div class="col-sm-6 " style="padding: 100px;" >  
+
+            <h2  style="margin-bottom: 20px;">
+                Quienes somos
+            </h2>
+            <p>
+                Transportes Contreras y Compañía Limitada se enorgullece de comprometerse con la satisfacción total de nuestros clientes. 
+                Nos esforzamos por ofrecer un servicio de transporte de carga por carretera confiable y eficiente, manteniendo la integridad de las entregas y 
+                cumpliendo estrictamente con los horarios acordados.
+            </p> 
+
+            <div>
+                <a href="{% url 'nosotros' %}" class="btn btn-success" style="background-color: black;">Saber más</a>
             </div>
-    
-    
-            <div class="row rowstyle-dark ">
-                <div class="col-sm-6 d-flex justify-content-center align-items-center">
-        
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d53292.17146980864!2d-70.87695986861578!3d-33.403406382384134!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662ebca7abf7459%3A0xfc1287753137f7ee!2stransportes%20contreras!5e0!3m2!1ses!2scl!4v1712126990869!5m2!1ses!2scl" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        
-                </div>
-        
-                <div class="col-sm-6 p-5 ">
-                    <p style="text-align: justify; color:#fdfbf1;">
-                        En Transportes Contreras, nuestra pasión por el transporte va más allá de mover mercancías; se trata de construir relaciones sólidas y duraderas con nuestros clientes. 
-                        Nos esforzamos por ser más que un simple proveedor de servicios logísticos, buscamos ser un socio confiable que entiende las necesidades individuales de cada cliente. 
-                        
-        
-                    </p>
-                </div>
-        
-            </div>
+
+
         </div>
 
-{% endblock %}
+        <div class="col-sm-6 d-flex justify-content-center align-items-center">
+            <img src="{% static 'IMG/CAMIONESw.jpg' %}"  style="height: 300px;border-radius: 10%;
+             " class="img-fluid">
+       </div>
+    </div>
 
+
+    <div class="row rowstyle-dark ">
+        <div class="col-sm-6 d-flex justify-content-center align-items-center">
+
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d53292.17146980864!2d-70.87695986861578!3d-33.403406382384134!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662ebca7abf7459%3A0xfc1287753137f7ee!2stransportes%20contreras!5e0!3m2!1ses!2scl!4v1712126990869!5m2!1ses!2scl" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+        </div>
+
+        <div class="col-sm-6 p-5 ">
+            <p style="text-align: justify; color:#fdfbf1;">
+                En Transportes Contreras, nuestra pasión por el transporte va más allá de mover mercancías; se trata de construir relaciones sólidas y duraderas con nuestros clientes. 
+                Nos esforzamos por ser más que un simple proveedor de servicios logísticos, buscamos ser un socio confiable que entiende las necesidades individuales de cada cliente. 
+                
+
+            </p>
+        </div>
+
+    </div>
+</div>
+
+
+{% endblock %}
+{% block js_content %}
+<script src="{% static 'JS/FUNCION.js' %}"></script>
+{% endblock %}

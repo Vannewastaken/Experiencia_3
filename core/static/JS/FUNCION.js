@@ -14,13 +14,13 @@ function togglePasswordVisibility() {
 
 //VALIDAR INICIO DE SESIÓN
 const expresion = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
-function iniciarSesion(){
+function iniciarSesion() {
     let c = document.getElementById('email').value;
     c = c.toLowerCase();
     const validar = expresion.test(c);
-    let p= document.getElementById('password').value;
+    let p = document.getElementById('password').value;
 
-    if(validar==false){
+    if (validar == false) {
         alert('El correo electronico no es valido');
         document.getElementById('email').value = "";
         document.getElementById('email').focus();
@@ -31,7 +31,7 @@ function iniciarSesion(){
         document.getElementById('password').value = "";
         document.getElementById('password').focus();
     }
-    else{
+    else {
         alert('Has iniciado sesión correctamente...')
     }
 
@@ -40,15 +40,15 @@ function iniciarSesion(){
 
 // LUKAS REGISTRO
 
-function registrarUsuario(){
-    let nom= document.getElementById('name').value;
-    let usu= document.getElementById('uname').value;
-    let em= document.getElementById('email').value;
-    let tel= document.getElementById('telefono').value;
-     let con= document.getElementById('contraseña').value;
-    let concon= document.getElementById('confirmarContraseña').value;
+function registrarUsuario() {
+    let nom = document.getElementById('name').value;
+    let usu = document.getElementById('uname').value;
+    let em = document.getElementById('email').value;
+    let tel = document.getElementById('telefono').value;
+    let con = document.getElementById('contraseña').value;
+    let concon = document.getElementById('confirmarContraseña').value;
 
-    em=em.toLowerCase();
+    em = em.toLowerCase();
     const validar = expresion.test(em);
 
 
@@ -58,12 +58,12 @@ function registrarUsuario(){
         document.getElementById('name').focus();
     }
     else if (usu.length < 4) {
-         alert('Error..debe ingresar un nombre de usuario mayor a 3 caracteres');
-         document.getElementById('uname').value = "";
-         document.getElementById('uname').focus();
-        
-     }
-     else if(validar==false){
+        alert('Error..debe ingresar un nombre de usuario mayor a 3 caracteres');
+        document.getElementById('uname').value = "";
+        document.getElementById('uname').focus();
+
+    }
+    else if (validar == false) {
         alert('El correo electronico no es valido');
         document.getElementById('email').value = "";
         document.getElementById('email').focus();
@@ -79,16 +79,16 @@ function registrarUsuario(){
         document.getElementById('contraseña').value = "";
         document.getElementById('contraseña').focus();
     }
-     else if (concon !== con) {
+    else if (concon !== con) {
         alert('Error..las contraseñas no coinciden');
         document.getElementById('contraseña').value = "";
         document.getElementById('confirmarContraseña').value = "";
         document.getElementById('contraseña').focus();
     }
-    else{
+    else {
         alert('Te has registrado correctamente!')
     }
-    
+
 }
 
 //API FERIADOS: LUKAS
@@ -123,19 +123,22 @@ getCamion(data => {
     console.log(data);
     data.forEach(camiones => {
         const html = `
-               
-        <div class="card custom-card d-flex ">
-                <img class="card-img-top" src="${camiones.img}" alt="Camion" style="height: 300px;">
-                <div class="card-body text-left">
-                    <h4 class="card-title" >Camión ${camiones.marca}</h4>
-                    <button type="button" class="btn btnservicios" data-bs-toggle="collapse" data-bs-target="#${camiones.id}">Descripción</button>
-                    <div id="${camiones.id}" class="collapse">
-                        <p class="cuerpocarta">Capacidad: ${camiones.capacidad}</p>
-                        <hr>
-                        <p class="cuerpocarta">Valor: ${camiones.valorxruta}</p>
-                    </div>
-                </div>
+         <DIV class="COL-3" >
+            <div class="card custom-card d-flex ">
+                        <img class="card-img-top" src="${camiones.img}" alt="Camion" style="height: 300px;">
+                        <div class="card-body text-left">
+                            <h4 class="card-title" >Camión ${camiones.marca}</h4>
+                            <button type="button" class="btn btnservicios" data-bs-toggle="collapse" data-bs-target="#${camiones.id}">Descripción</button>
+                            <div id="${camiones.id}" class="collapse">
+                                <p class="cuerpocarta">Capacidad: ${camiones.capacidad}</p>
+                                <hr>
+                                <p class="cuerpocarta">Valor: ${camiones.valorxruta}</p>
+                            </div>
+                        </div>
             </div>
+        </DIV>
+            
+         
         
       
 

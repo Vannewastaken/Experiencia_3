@@ -10,6 +10,7 @@
     {% load static %}
     <!-- FAVICON -->
     <link rel="icon" type="image/png" href="{% static 'IMG/ICONO.png' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'CSS/ESTILOS.css' %}">
     {% block head-extra %}{% endblock %}
 
     
@@ -35,7 +36,7 @@
 
     <!-- NAVEGADOR -->
     
-        <nav class="navbar navbar-expand-sm   menu  ">
+    <nav class="navbar navbar-expand-sm   menu  ">
             <button class="navbar-toggler m-3"  type="button" data-bs-toggle="collapse" data-bs-target="#opciones" >
                 <span class="navbar-toggler-icon" style="background-color: #fdfbf1;"></span>
             </button>       
@@ -44,48 +45,18 @@
                     TRANSPORTES
                 </h2>
             </a>
-           <!-- Links -->
-            <div class="collapse navbar-collapse" id="opciones">
-                <ul class="navbar-nav   " style="margin-left: 15px;">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'nosotros' %}">
-                            <h2 class="poppins">
-                                NOSOTROS
-                            </h2>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'servicios' %}">
-                            <h2 class="poppins">
-                                SERVICIOS
-                            </h2>
-                        </a>
-                    </li>
-                    
-                    <div>
-                        {% if user.is_authenticated %}
-                                
-                                
-                                <a class="nav-link" href="{% url 'cerrar' %}">
-                                    <h2 class="poppins">
-                                        CERRAR SESIÓN
-                                    </h2>
-                                </a>
-
-                            {% else %}
-                            <a class="nav-link" href="{% url 'login' %}">
-                                <h2 class="poppins">
-                                    INICIAR SESIÓN
-                                </h2>
-                            </a>
-                                
-                                   
-                                
-                            {% endif %}
-                      </div>
-                </ul>
-            </div>
-       </nav>
+            <!-- Links -->
+             
+        {% if user.is_authenticated %}
+            {% if user.is_staff %}
+                {% include 'menuAdmin.html' %}
+            {% else %}
+                {% include 'menuCliente.html' %}
+            {% endif %}
+        {% else %}
+            {% include 'menuGeneral.html' %}
+        {% endif %}
+    </nav>
     
 
     {% block content %} {% endblock %}

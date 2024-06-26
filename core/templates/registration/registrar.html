@@ -4,6 +4,8 @@
 {% block head-extra %}
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'CSS/ESTILOS.css' %}">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.19.3/jquery.validate.min.js"></script>
 
 
 
@@ -17,16 +19,19 @@
             <div class="col-lg-3" >
                 
             </div>
-            <div class="col-lg-6 rounded"  style="background-color: rgb(255, 255, 255);">
+            <div class="col-lg-6 rounded"  style="background-color: rgb(255, 255, 255); padding-bottom: 60px;">
                 <h1 style="padding-top: 80px; text-align: center; ">Registrarse</h1>
 
                 <div class="row inicioform text-center " style=" padding-top: 40px;">
-                    <form action="#" method="POST">
+                    <form action="#" method="POST" id="formulario">
                         {% csrf_token %}
 
                         <div class="form-group" style="margin-bottom: 20px;">
                             <label for="">Username: </label><br>
                             {{ form.username }}
+                            {% for error in form.username.errors %}
+                            <p style="color: red;">{{ error }}</p>
+                            {% endfor %}
                         </div>
 
                         <div class="form-group" style="margin-bottom: 20px;">
@@ -42,6 +47,9 @@
                         <div class="form-group" style="margin-bottom: 20px;">
                             <label for="">Correo Electrónico: </label><br>
                             {{ form.email }}
+                            {% for error in form.email.errors %}
+                            <p style="color: red;">{{ error }}</p>
+                            {% endfor %}
                         </div>
 
                         <div class="form-group" style="margin-bottom: 20px;">
@@ -55,9 +63,9 @@
                             {{ form.password2 }}
                         </div>
                         
-                        <a href="{% url 'login' %}" class="btn btn-dark mb-5" style="margin-right: 20px;">Login</a> 
-                        <input type="submit" value="Registrarse" class="btn btn-dark mb-5" >
-
+                        <a href="{% url 'login' %}" class="btn btn-dark ">Login</a> | 
+                        <input type="submit" value="Registrarse" class="btn btn-dark " > |
+                        <a href="{% url 'home' %}" class="btn btn-dark">Home</a>
 
 
                     </form>

@@ -5,11 +5,28 @@ from django.forms.widgets import Widget
 from .models import Categoria1,Categoria2,Vehiculo
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+from django.core.exceptions import ValidationError
 
 class RegistroUserForm(UserCreationForm):
-    class Meta: 
-        model = User 
+    first_name = forms.CharField(max_length=30, required=True)
+    last_name = forms.CharField(max_length=30, required=True)
+    email = forms.EmailField(max_length=254, help_text='Por favor ingrese una dirección de correo válida.')
+
+    class Meta:
+        model = User
         fields = ['username', 'first_name', 'last_name', 'email', 'password1', 'password2']
+
+
+    def clean_username(self):
+        username = self.cleaned_data['username']
+        if User.objects.filter(username=username).exists():
+            raise forms.ValidationError("Este nombre de usuario ya está en uso.")
+        return username
+    def clean_email(self):
+        email = self.cleaned_data['email']
+        if User.objects.filter(email=email).exists():
+            raise forms.ValidationError("Este email de usuario ya está en uso.")
+        return email   
 
 class CamionForm(forms.ModelForm):
     class Meta:
@@ -81,3 +98,24 @@ class CamionForm(forms.ModelForm):
                 }
             ),
         }
+    def clean_placa(self):
+        placa = self.cleaned_data['placa']
+        if self.instance and self.instance.pk:
+            if Vehiculo.objects.filter(placa=placa).exclude(pk=self.instance.pk).exists():
+                raise forms.ValidationError("Ya existe un vehículo con esta placa.")
+        else:
+            if Vehiculo.objects.filter(placa=placa).exists():
+                raise forms.ValidationError("Ya existe un vehículo con esta placa.")
+        return placa
+
+    def clean_capacidad(self):
+        capacidad = self.cleaned_data.get('capacidad')
+        if capacidad <= 0:
+            raise ValidationError("La capacidad debe ser un número positivo.")
+        return capacidad
+
+    def clean_precio(self):
+        precio = self.cleaned_data.get('precio')
+        if precio <= 0:
+            raise ValidationError("El precio debe ser un número positivo.")
+        return precio

@@ -4,7 +4,7 @@
 
 {% block head-extra %}
 {% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'CSS/ESTILOS.css' %}">
+
     
 {% endblock %}
 
@@ -12,9 +12,10 @@
 {% load static %}
 
 <!-- TABLA -->
-<h1 class="text-center" style="margin-top: 100px;font-size: 70px;"> PRODUCTOS </h1>
+ <body style="background-color: #fdfbf1;">
+    <h1 class="text-center" style="margin-top: 100px;font-size: 70px; font-weight: bold"> PRODUCTOS </h1>
  <main class="container-fluid" style=" margin-top: 70px;padding: 60px;">
-    <div class="table-responsive-xl">
+    <div class="">
         <table class="table table-bordered table-striped table-hover " >
             <thead>
                 <tr class="tablefontth text-center">
@@ -54,6 +55,8 @@
       
 
  </main>
+ </body>
+
 
 
 {% endblock %}

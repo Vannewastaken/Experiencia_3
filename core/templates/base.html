@@ -11,6 +11,8 @@
     <!-- FAVICON -->
     <link rel="icon" type="image/png" href="{% static 'IMG/ICONO.png' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'CSS/ESTILOS.css' %}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
     {% block head-extra %}{% endblock %}
 
     
@@ -36,7 +38,7 @@
 
     <!-- NAVEGADOR -->
     
-    <nav class="navbar navbar-expand-sm   menu  ">
+    <nav class="navbar navbar-expand-lg   menu  ">
             <button class="navbar-toggler m-3"  type="button" data-bs-toggle="collapse" data-bs-target="#opciones" >
                 <span class="navbar-toggler-icon" style="background-color: #fdfbf1;"></span>
             </button>       
@@ -45,17 +47,19 @@
                     TRANSPORTES
                 </h2>
             </a>
-            <!-- Links -->
-             
-        {% if user.is_authenticated %}
-            {% if user.is_staff %}
-                {% include 'menuAdmin.html' %}
-            {% else %}
-                {% include 'menuCliente.html' %}
-            {% endif %}
-        {% else %}
-            {% include 'menuGeneral.html' %}
-        {% endif %}
+            <div class="collapse navbar-collapse" id="opciones">
+                <ul class="navbar-nav   " style="margin-left: 15px;">
+                    {% if user.is_authenticated %}
+                        {% if user.is_staff %}
+                            {% include 'menuAdmin.html' %}
+                        {% else %}
+                            {% include 'menuCliente.html' %}
+                        {% endif %}
+                    {% else %}
+                        {% include 'menuGeneral.html' %}
+                    {% endif %}
+                </ul>
+            </div>
     </nav>
     
 
@@ -84,7 +88,7 @@
 
     <!-- BOOTSTRAP 5 + JAVA SCRIPT -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    
+    <script src="{% static 'JS/FUNCION.js' %}"></script>
     {% block js_content %}{% endblock %}
     
 </body>

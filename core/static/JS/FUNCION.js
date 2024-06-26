@@ -90,3 +90,29 @@ function registrarUsuario() {
     }
 
 }
+function MostrarServicios(){
+    let url='http://localhost:3300/camiones';
+    //implementar Fetch que permita la información de las mascotas
+    fetch(url)
+    .then(response => response.json())
+    .then(data => MostrarProductos(data))
+    .catch(error => console.log(error))
+
+    const MostrarProductos=(data)=>{
+        console.log(data)
+        let texto=""
+        for(var i=0;i<data.length;i++){
+            texto+=`<tr>
+                <td>${data[i].id}</td>
+                <td><img style="width:200px;" src="${data[i].img}"></td>
+                <td>${data[i].marca}</td>
+                <td>${data[i].valorxruta}</td>
+                <td>${data[i].capacidad}</td>
+                <td>${data[i].ciudad}</td>
+                </tr>`
+        }
+        document.getElementById('apicamion').innerHTML=texto;
+    }
+
+
+}

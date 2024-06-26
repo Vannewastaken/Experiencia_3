@@ -4,7 +4,7 @@
 
 {% block head-extra %}
 {% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'CSS/ESTILOS.css' %}">
+
     
 {% endblock %}
 
@@ -58,8 +58,8 @@
         
       </div>
  </main>
-
- <div class="container-fluid">
+<body style="background-color: #fdfbf1;">
+  <div class="container-fluid">
     <div class="row " style="padding-top: 50px; padding-bottom: 50px;">
 
         <div class="col-sm-6 " style="padding: 100px;" >  
@@ -85,6 +85,7 @@
              " class="img-fluid">
        </div>
     </div>
+    
 
 
     <div class="row rowstyle-dark ">
@@ -104,10 +105,38 @@
         </div>
 
     </div>
+    <div class="container-fluid" style="margin-top: 100px;">
+      <hr>
+      <h2 style="margin-left: 50px;">Camiones</h2>
+      <hr>
+      <div class="row">
+          <div class="col-md-4" style="margin-left: 50px;">
+              <input type="button" value="Mostrar Camiones" onclick="MostrarServicios()" class="btn btn-dark">
+          </div>
+      </div>
+      <div class="table-responsive-lg" style="padding: 50px;">
+          <table class="table table-bordered" >
+              <thead>
+                  <tr>
+                      <th>ID</th>
+                      <th>Imagen</th>
+                      <th>Modelo</th>
+                      <th>Precio</th>
+                      <th>Capacidad</th>
+                      <th>Ciudad</th>
+                  </tr>
+              </thead>
+              <tbody id="apicamion">
+
+              </tbody>
+          </table>
+
+      </div>
+  </div>
+    
 </div>
+</body>
+ 
 
 
-{% endblock %}
-{% block js_content %}
-<script src="{% static 'JS/FUNCION.js' %}"></script>
 {% endblock %}

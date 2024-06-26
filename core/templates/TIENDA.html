@@ -5,14 +5,12 @@
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'CSS/ESTILOS.css' %}">
 
-
-
 {% endblock %}
 
 {% block content %}
 {% load static %}
 <main class="container-fluid">
-    <h1  style="font-size: 70px; margin-top: 100px;margin-left: 100px;">TIENDA</h1>
+    <h1  style="font-size: 70px; margin-top: 100px;margin-left: 100px;" class="text-center">TIENDA</h1>
     <div class="row justify-content-center" style=" padding: 70px;">
 
         
@@ -39,7 +37,7 @@
                                 Capacidad: {{ auto.capacidad }}<br>
                                 Precio: ${{ auto.precio }}<br>
                             </p>
-                            <a href="#" class="btn btn-outline-success">Agregar al carro</a>
+                            <a href="{% url 'agregar' auto.placa %}" class="btn btn-outline-success">Agregar al carro</a>
                         </div>
                     </div>
                 </div>
@@ -50,54 +48,8 @@
 
 
 
-
-        <div class="offcanvas offcanvas-end" id="demo">
-            <div class="offcanvas-body">
-                <div role="alert">
-                    <table class="table table-bordered-custom ">
-                        <thead>
-                            <tr scope="row"class="text-center"><td colspan="3" style="font-weight:bold; font-size:18px">  CARRITO </td></tr>
-                            <td style="font-size:15px; font-weight: bold; color:black; text-align: center;">MARCA</td>
-                            <td style="font-size:15px; font-weight: bold; color:black; text-align: center;">PRECIO</td>
-                            <td style="font-size:15px; font-weight: bold; color:black; text-align: center;">CANTIDAD</td>
-                        </thead>
-                        <tbody>
-                            
-                                    <tr class="text-center">
-                                        <td style="font-size:13px"></td>
-                                        <td style="font-size:13px"></td>
-                                        <td style="font-size:13px">
-                                            <br>
-                                            <a href="#" class="badge btn btn-primary">+</a>
-                                            <a href="#" class="badge btn btn-warning">-</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Total : </th>
-                                        <td colspan="2"></td>
-                                    </tr>
-                              
-                            <tr>
-                                <td colspan="3">
-                                    <div class="alert alert-info text-center" style="font-weight: bold; margin-top: 15px;">Sin Productos</div>
-                                </td>
-                            </tr>
-                            
-                        </tbody>
-                    </table>
-                    <hr>
-                </div>
-                <div class="row text-center">
-                    <div class="col-6">
-                        <a href="#" class="btn btn-warning">Limpiar</a> 
-                       </div> 
-                       <div class="col-6">
-                        <a href="#" class="btn btn-primary">Comprar</a>
-                    </div>
-                </div>
-              
-            </div>
-          </div>
+        {% include "carrito.html" %}
+        
 
         
     </div>

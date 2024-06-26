@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from .models import Categoria1,Categoria2,Vehiculo
 from .forms import CamionForm, RegistroUserForm
 from django.contrib import messages
+from core.compras import Carrito
 
 
 
@@ -85,6 +86,30 @@ def registrar(request):
         data["form"]=formulario
     return render(request, 'registration/registrar.html',data)
 
+
+
+def agregar_producto(request,id):
+    carrito_compra= Carrito(request)
+    camion = Vehiculo.objects.get(placa=id)
+    carrito_compra.agregar(camion=camion)
+    return redirect('tienda')
+
+def eliminar_producto(request, id):
+    carrito_compra= Carrito(request)
+    camion = Vehiculo.objects.get(placa=id)
+    carrito_compra.eliminar(camion=camion)
+    return redirect('tienda')
+
+def restar_producto(request, id):
+    carrito_compra= Carrito(request)
+    camion = Vehiculo.objects.get(placa=id)
+    carrito_compra.restar(camion=camion)
+    return redirect('tienda')
+
+def limpiar_carrito(request):
+    carrito_compra= Carrito(request)
+    carrito_compra.limpiar()
+    return redirect('tienda')    
 
 def tienda(request):
     camion = Vehiculo.objects.all()

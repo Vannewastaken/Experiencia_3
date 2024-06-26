@@ -13,5 +13,9 @@ urlpatterns= [
     path('registrar/', views.registrar, name="registrar"),
     
     path('tienda/',views.tienda, name="tienda"),
+    path('agregar/<id>', views.agregar_producto, name="agregar"),
+    path('eliminar/<id>', views.eliminar_producto, name="eliminar"),
+    path('restar/<id>', views.restar_producto, name="restar"),
+    path('limpiar/', views.limpiar_carrito, name="limpiar"),
 
 ]

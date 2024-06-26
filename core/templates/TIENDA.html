@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+{% block title %} Detalle {% endblock %}
+
+{% block head-extra %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'CSS/ESTILOS.css' %}">
+
+
+
+{% endblock %}
+
+{% block content %}
+{% load static %}
+<main class="container-fluid">
+    <h1  style="font-size: 70px; margin-top: 100px;margin-left: 100px;">TIENDA</h1>
+    <div class="row justify-content-center" style=" padding: 70px;">
+
+        
+         <!-- BOTON PA ABRIR EL CARRO POR SI ESO-->
+         <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo" >
+            CARRITO
+        </button>
+
+
+        <div class="container">
+            <div class="row">
+                {% for auto in camion %}
+                <div class="col-lg-4 col-md-6 col-sm-12" style="padding: 30px;">
+                    <div class="card mx-auto" style="padding: 20px;">
+                        {% if auto.imagen %}
+                        <img class="card-img-top mx-auto" src="{{ auto.imagen.url }}" alt="Card image" style="max-width:100% ;width: 280px; height: 280px;">
+                        {% else %}
+                        <img src="{% static 'IMG/sinfoto.webp' %}" class="card-img-top mx-auto" style="max-width:100% ;width: 250px; height: 250px;">
+                        {% endif %}
+                        <div class="card-body text-center">
+                            <h4 class="card-title">Patente: {{ auto.placa }}</h4>
+                            <p class="card-text">
+                                Marca: {{ auto.marca }}<br>
+                                Capacidad: {{ auto.capacidad }}<br>
+                                Precio: ${{ auto.precio }}<br>
+                            </p>
+                            <a href="#" class="btn btn-outline-success">Agregar al carro</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+
+
+
+
+        <div class="offcanvas offcanvas-end" id="demo">
+            <div class="offcanvas-body">
+                <div role="alert">
+                    <table class="table table-bordered-custom ">
+                        <thead>
+                            <tr scope="row"class="text-center"><td colspan="3" style="font-weight:bold; font-size:18px">  CARRITO </td></tr>
+                            <td style="font-size:15px; font-weight: bold; color:black; text-align: center;">MARCA</td>
+                            <td style="font-size:15px; font-weight: bold; color:black; text-align: center;">PRECIO</td>
+                            <td style="font-size:15px; font-weight: bold; color:black; text-align: center;">CANTIDAD</td>
+                        </thead>
+                        <tbody>
+                            
+                                    <tr class="text-center">
+                                        <td style="font-size:13px"></td>
+                                        <td style="font-size:13px"></td>
+                                        <td style="font-size:13px">
+                                            <br>
+                                            <a href="#" class="badge btn btn-primary">+</a>
+                                            <a href="#" class="badge btn btn-warning">-</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Total : </th>
+                                        <td colspan="2"></td>
+                                    </tr>
+                              
+                            <tr>
+                                <td colspan="3">
+                                    <div class="alert alert-info text-center" style="font-weight: bold; margin-top: 15px;">Sin Productos</div>
+                                </td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                    <hr>
+                </div>
+                <div class="row text-center">
+                    <div class="col-6">
+                        <a href="#" class="btn btn-warning">Limpiar</a> 
+                       </div> 
+                       <div class="col-6">
+                        <a href="#" class="btn btn-primary">Comprar</a>
+                    </div>
+                </div>
+              
+            </div>
+          </div>
+
+        
+    </div>
+</main>
+
+
+
+{% endblock %}

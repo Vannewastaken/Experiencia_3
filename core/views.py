@@ -84,4 +84,11 @@ def registrar(request):
             return redirect('home')
         data["form"]=formulario
     return render(request, 'registration/registrar.html',data)
-        
+
+
+def tienda(request):
+    camion = Vehiculo.objects.all()
+    datos={
+        'camion':camion
+    }
+    return render(request, 'tienda.html', datos)

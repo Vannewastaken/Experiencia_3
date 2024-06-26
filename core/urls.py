@@ -12,6 +12,6 @@ urlpatterns= [
     path('logout/', views.cerrar, name="cerrar"),
     path('registrar/', views.registrar, name="registrar"),
     
-    
+    path('tienda/',views.tienda, name="tienda"),
 
 ]

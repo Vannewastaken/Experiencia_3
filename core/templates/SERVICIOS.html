@@ -1,26 +1,59 @@
 {% extends "base.html" %}
 
-{% block title %} Servicios {% endblock %}
+{% block title %} SERVICIOS {% endblock %}
+
+{% block head-extra %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'CSS/ESTILOS.css' %}">
+    
+{% endblock %}
+
 {% block content %}
 {% load static %}
 
-<body style="background-color: #383b3d;">
-    <div class="container-fluid" Sstyle="padding-top: 70px;">
-        <div class="row row_style justify-content-center" id="camiones-row" >
-            
-        </div>
-
-        <!-- SEGUNDA FILA -->
-
-        <div class="row row_style justify-content-center" id="rampla-row">
-            
-        </div>
-    </div>
-{% endblock %}
-
-{% block js_content %}
-
-<script src="{% static 'JS/FUNCION.js' %}"></script>
+<!-- TABLA -->
+<h1 class="text-center" style="margin-top: 100px;font-size: 70px;"> PRODUCTOS </h1>
+ <main class="container-fluid" style=" margin-top: 70px;padding: 60px;">
+    <div class="table-responsive-xl">
+        <table class="table table-bordered table-striped table-hover " >
+            <thead>
+                <tr class="tablefontth text-center">
+                    <th>ID</th>
+                    <th>Imagen</th>
+                    <th>Marca</th>
+                    <th>Capacidad</th>
+                    <th>Ciudad</th>
+                    <th>Rampla</th>
+                    <th>Precio</th>
+                    <th>Modificar</th>
+                    <th>Eliminar</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for ca in camion %}
+                <tr class="tablefonttd text-center">
+                    <td><a href="{% url 'detalle' ca.placa %}" class="btn btn-dark" style="width: 80px;"> {{ca.placa}}</a></td>
+                    <td><img src="{{ ca.imagen.url }}" style="height: 60px; width: 60px;"></td>
+                    <td>{{ca.marca}}</td>
+                    <td>{{ca.capacidad}}</td>
+                    <td>{{ca.categoria2}}</td>
+                    <td>{{ca.categoria1}}</td>
+                    <td>${{ca.precio}}</td>
+                    <td><a href="{% url 'modificar' ca.placa %}" class="btn btn-warning">Modificar</a></td>
+                    <td><a href="{% url 'eliminar' ca.placa %}" class="btn btn-danger">Eliminar</a></td>
+                </tr>
+                {%endfor%}
+            </tbody>
     
+        </table>
+        
+    </div>
+    <div class="d-grid">
+        <a href="{% url 'crear' %}" class="btn btn-dark">Crear Camión</a>
+      </div>
+      
+
+ </main>
+
 
 {% endblock %}

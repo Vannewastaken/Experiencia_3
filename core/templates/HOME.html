@@ -2,6 +2,12 @@
 
 {% block title %} Home {% endblock %}
 
+{% block head-extra %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'CSS/ESTILOS.css' %}">
+    
+{% endblock %}
+
 {% block content %}
 {% load static %}
 

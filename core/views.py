@@ -1,6 +1,11 @@
 from django.shortcuts import render, redirect,get_object_or_404
+from django.contrib.auth import logout, authenticate, login
+from django.contrib.auth.decorators import login_required
 from .models import Categoria1,Categoria2,Vehiculo
-from .forms import CamionForm
+from .forms import CamionForm, RegistroUserForm
+from django.contrib import messages
+
+
 
 # Create your views here.
 
@@ -11,7 +16,7 @@ def nosotros(request):
     return render(request, 'nosotros.html')
 
 
-
+@login_required
 def servicios(request): 
     camion = Vehiculo.objects.all()              #similar a select * from Vehiculo
     return render(request, 'servicios.html', {'camion':camion})
@@ -37,7 +42,7 @@ def detalle(request, id):
 
 
 def modificar(request, id):
-    vehiculo = get_object_or_404(placa=id)
+    vehiculo = Vehiculo.objects.get(placa=id)
     datos={
         'forModificar': CamionForm(instance=vehiculo),     #crea un obj de tipo formulario
         'vehiculo':  vehiculo
@@ -61,3 +66,22 @@ def eliminar(request, id):
 
 
 
+def cerrar(request):
+    logout(request)
+    return redirect('home')
+
+def registrar(request):
+    data={
+        'form':RegistroUserForm()
+    }
+    if request.method=='POST':
+        formulario = RegistroUserForm(data=request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            user = authenticate(username=formulario.cleaned_data["username"],
+                                password=formulario.cleaned_data["password1"])
+            login(request,user)
+            return redirect('home')
+        data["form"]=formulario
+    return render(request, 'registration/registrar.html',data)
+        

@@ -56,7 +56,7 @@ ROOT_URLCONF = 'MyWeb.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS':  [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -124,8 +124,8 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-STATICFILES_DIR=[
-    BASE_DIR /'static'
+staticfiles_DIR=[
+    BASE_DIR/'static'
 ]
 
 MEDIA_ROOT=BASE_DIR/ "files"
